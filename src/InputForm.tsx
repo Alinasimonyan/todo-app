@@ -1,13 +1,40 @@
 import { FaPlus } from "react-icons/fa6";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { nanoid } from "nanoid";
 
-export const InputForm = ({ addTask }) => {
+export const InputForm = ({ taskList, setTaskList, editTodo }) => {
   const [value, setValue] = useState<string>(" ");
+  console.log(value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTask(value);
-    setValue(" ");
+    if (!editTodo) {
+      addTask(value);
+    } else {
+      updateTodo(editTodo.id, value);
+    }
+  };
+
+  useEffect(() => {
+    if (editTodo) {
+      setValue(editTodo.taskName);
+    } else {
+      setValue(" ");
+    }
+  }, [editTodo, taskList]);
+
+  const addTask = (input: string) => {
+    setTaskList([
+      ...taskList,
+      { id: nanoid(), taskName: input, completed: false },
+    ]);
+  };
+
+  const updateTodo = (id: string, value: string) => {
+    const addTodo = taskList.map((todo) =>
+      todo.id === id ? { ...todo, id: id, taskName: value } : todo
+    );
+    setTaskList([...taskList, addTodo]);
   };
 
   return (
