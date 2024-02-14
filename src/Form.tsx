@@ -50,7 +50,7 @@ export const Form = ({
         placeholder="Enter a task..."
         value={input}
         onChange={onInputChange}
-        className="h-10 rounded-md pl-3 pr-3 capitalize"
+        className="h-10 rounded-md pl-3 pr-3 capitalize ml-20"
       />
       <button
         type="submit"

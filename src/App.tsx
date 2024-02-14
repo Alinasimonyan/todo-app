@@ -20,30 +20,33 @@ const App: FC = () => {
   }, [taskList]);
 
   return (
-    <div className="bg-pack-train bg-cover bg-no-repeat bg-fixed flex flex-col justify-center items-center bg-slate-400">
-      <div className="text-green-800 p-5 mt-20 font-bold text-2xl tracking-tighter">
-        Task Manager
+    <div className=" bg-pack-train bg-cover bg-no-repeat bg-fixed flex flex-col justify-center items-center bg-slate-400 min-h-screen">
+      <div className="text-gray-200 p-5 mt-64 text-2xl tracking-tighter"></div>
+      <div className="mt-2">
+        <Form
+          editTodo={editTodo}
+          setEditTodo={setEditTodo}
+          taskList={taskList}
+          setTaskList={setTaskList}
+          setInput={setInput}
+          input={input}
+        />
+        <TaskList
+          taskList={taskList}
+          setTaskList={setTaskList}
+          setEditTodo={setEditTodo}
+        />
       </div>
-      <Form
-        editTodo={editTodo}
-        setEditTodo={setEditTodo}
-        taskList={taskList}
-        setTaskList={setTaskList}
-        setInput={setInput}
-        input={input}
-      />
-      <TaskList
-        taskList={taskList}
-        setTaskList={setTaskList}
-        setEditTodo={setEditTodo}
-      />
-      <button
-        className=" bg-green-800  
-            rounded-lg text-white pr-3 pl-3 pt-2 pb-2 font-light text-xs mx-auto shadow-[0_3px_10px_rgb(0,0,0,0.3) hover:bg-green-700 hover:shadow-[0_3px_10px_rgb(0,0,0,0.4)]"
-        onClick={() => deleteAll()}
-      >
-        delete all tasks
-      </button>
+
+      <div className="mt-10 mb-20">
+        <button
+          className=" bg-green-800  
+            rounded-lg text-white pr-3 pl-3 pt-2 pb-2 font-light text-xs shadow-[0_3px_10px_rgb(0,0,0,0.3) hover:bg-green-700 hover:shadow-[0_3px_10px_rgb(0,0,0,0.4)]"
+          onClick={() => deleteAll()}
+        >
+          delete all tasks
+        </button>
+      </div>
     </div>
   );
 };

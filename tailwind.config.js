@@ -5,7 +5,7 @@ export default {
     extend: {
       backgroundImage: {
         "pack-train":
-          "url('https://img.freepik.com/premium-photo/top-view-desk-with-laptop-coffee-glasses-pen-table-office-desk-copy-space_37714-1250.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699660800&semt=ais')",
+          "url('https://i.pinimg.com/originals/cf/44/d7/cf44d7919ee7114ea47fd2f83fdc86b4.jpg')",
       },
     },
   },
